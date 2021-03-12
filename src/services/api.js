@@ -1,24 +1,22 @@
-import axios from 'axios'
+import axios from 'axios';
 
-const STEAM_STORE_API_URL = 'https://store.steampowered.com'
-// const STEAM_WEB_API_URL = 'https://api.steampowered.com'
-// const STEAM_API_KEY = '386CB766EA1FB3DB8C92DF89C722FA78'
+const BACK_END_API_URL = 'http://localhost:3000';
 
 const SteamStoreAPI = {
     async getFeaturedAPI() {
-        return await axios.get(`${STEAM_STORE_API_URL}/api/featured`);
+        return await axios.get(`${BACK_END_API_URL}/api/featured`);
     },
 
     async getSalePageAPI() {
-        return await axios.get(`${STEAM_STORE_API_URL}/api/salepage`);
+        return await axios.get(`${BACK_END_API_URL}/api/salepage`);
     },
 
     async getFeaturedCategoriesAPI() {
-        return await axios.get(`${STEAM_STORE_API_URL}/api/featuredcategories`);
+        return await axios.get(`${BACK_END_API_URL}/api/featuredcategories`);
     },
 
     async getAppDetailsAPI(appids) {
-        return await axios.get(`${STEAM_STORE_API_URL}/api/appdetails/?appids=${appids}`);
+        return await axios.get(`${BACK_END_API_URL}/api/appdetails/${appids}`);
     },
 
     async getAppUserDetailsAPI(appids, filters) {

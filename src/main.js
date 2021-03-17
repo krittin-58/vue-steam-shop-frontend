@@ -12,6 +12,10 @@ Vue.use(VuikitIcons)
 
 Vue.config.productionTip = false
 
+Vue.filter('currency', function (value) {
+  return '฿' + parseFloat(value).toFixed(2);
+});
+
 new Vue({
   router,
   store,

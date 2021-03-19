@@ -24,7 +24,7 @@ import SteamStoreAPI from '../services/api'
 import ProductCard from '../components/product/ProductCard.vue';
 
 export default {
-    name: 'Products',
+    name: 'Products-page',
     components: {
         ProductCard
     },

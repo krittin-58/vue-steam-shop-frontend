@@ -9,10 +9,38 @@
     <vk-navbar-nav slot="right">
         <vk-navbar-item>
             <form action="javascript:void(0)">
-                <input class="uk-input uk-form-width-small uk-margin-small-right" type="text" placeholder="Search">
-                <vk-button>Button</vk-button>
+                <vk-button-link href="/login">{{ displayName ? displayName : 'Login'}}</vk-button-link>
             </form>
         </vk-navbar-item>
     </vk-navbar-nav>
     </vk-navbar>
 </template>
+
+<script>
+import firebase from 'firebase'
+
+export default {
+    name: 'NavBar',
+    data() {
+        return {
+            displayName: null
+        }
+    },
+
+    mounted() {
+        this.checkAuthUser();
+    },
+
+    methods: {
+        checkAuthUser() {
+            firebase.auth().onAuthStateChanged((user) => {
+                if (user !== null) {
+                    this.displayName = user.displayName
+                } else {
+                    this.displayName = null
+                }
+            });
+        }
+    }
+}
+</script>

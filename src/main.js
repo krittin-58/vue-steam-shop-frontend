@@ -13,6 +13,8 @@ Vue.use(VuikitIcons)
 
 Vue.config.productionTip = false
 
+let app = ''
+
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAbULXuvw7jQW2udCnTpxBhNokqNkpX2KE",
@@ -26,8 +28,12 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+firebase.auth().onAuthStateChanged(() => {
+  if (!app) {
+    app = new Vue({
+    router,
+    store,
+    render: h => h(App)
+    }).$mount('#app')
+  }
+});

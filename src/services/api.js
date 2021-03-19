@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BACK_END_API_URL = 'http://localhost:3000';
+const BACK_END_API_URL = process.env.VUE_APP_BACKEND_URL;
 
 const SteamStoreAPI = {
     async getFeaturedAPI() {

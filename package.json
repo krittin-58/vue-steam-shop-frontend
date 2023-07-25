@@ -11,7 +11,7 @@
     "@vuikit/theme": "^0.8.1",
     "axios": "^0.21.2",
     "core-js": "^3.6.5",
-    "firebase": "^8.3.1",
+    "firebase": "^8.10.1",
     "firebaseui": "^4.8.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
